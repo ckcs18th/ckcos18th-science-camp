@@ -1,0 +1,114 @@
+/* 清除瀏覽器預設的邊距與內距 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 設定導覽列背景與陰影 */
+.navbar {
+  background-color: #b174e7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* 讓列表橫向排列、去除預設點點與邊距 */
+.nav-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#title {
+  background-color: #0066cc;
+  color:#f0f2f5;
+  font-family: Arial, sans-serif;
+}
+
+/* 索引標籤按鈕的樣式 */
+.nav-tabs li a {
+  display: block;
+  padding: 15px 25px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 滑鼠懸停時的特效 */
+.nav-tabs li a:hover {
+  background-color: #f0f2f5;
+  color: #0066cc;
+}
+
+/* 當前頁面/選中的標籤樣式 */
+.nav-tabs li a.active {
+  background-color: #f0f2f5;
+  color: #0066cc;
+}
+
+#nav {
+    background-color: #c2d2eb;
+    text-align: center; /* 讓裡面的圖片置中 */
+    padding: 10px 0;    /* 上下留白，把導覽列高度撐出來 */
+}
+
+#head_logo {
+    width: 50%;
+    height: auto;
+}
+
+/* 切換頁面 */
+.tab-content {
+    display: none !important;
+}
+.tab-content.active {
+    display: block !important;
+}
+.tab-content h1, 
+.tab-content p {
+    padding: 20px; /* 讓文字頁面保持舒適的邊距 */
+}
+
+/* 電腦版預設隱藏漢堡按鈕 */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. 顯示漢堡按鈕 */
+    .hamburger-btn {
+        display: block;
+    }
+
+    /* 2. 手機版預設隱藏選單列表，並改成垂直排列 */
+    .nav-tabs {
+        display: none;             /* 預設隱藏 */
+        flex-direction: column;    /* 改成垂直排列 */
+        width: 100%;
+        background-color: #b174e7; /* 維持你的導覽列紫色背景 */
+    }
+
+    /* 3. 當 JS 加上 .open 時才顯示選單 */
+    .nav-tabs.open {
+        display: flex;
+    }
+
+    /* 4. 調整標籤在手機上的外觀與邊框 */
+    .nav-tabs li {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-tabs li a {
+        padding: 14px 20px;
+        text-align: left;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一建鍾情科不容緩-建國中學第十八屆科學班寒假科學營</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+    <nav class="navbar">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="切換選單">
+            ☰
+        </button>
+        <ul class="nav-tabs" id="nav-tabs">
+            <li><a href="#home" id="title" class="active tab-link" data-target="home-content">一建鍾情 科不容緩</a></li>
+            <li><a href="#home" class="tab-link" data-target="home-content">首頁</a></li>
+            <li><a href="#brochure" class="tab-link" data-target="brochure-content">簡章</a></li>
+            <li><a href="#admission" class="tab-link" data-target="admission-content">錄取公告</a></li>
+            <li><a href="#documents" class="tab-link" data-target="documents-content">相關文件</a></li>
+            <li><a href="#plan" class="tab-link" data-target="plan-content">計劃書</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 下方切換的內容區塊 -->
+    <div class="content-container">
+        <!-- 預設顯示首頁，加上 active 讓它顯示 -->
+        <div id="home-content" class="tab-content active">
+            <div id="nav">
+                <img id="head_logo" src="head_logo.png">
+                <p>首頁文字</p>
+            </div>
+        </div>
+
+        <div id="brochure-content" class="tab-content">
+            <h1>簡章</h1>
+        </div>
+
+        <div id="admission-content" class="tab-content">
+            <h1>錄取名單</h1>
+            <p>目前還沒公布錄取名單唷，敬請期待</p>
+        </div>
+
+        <div id="documents-content" class="tab-content">
+            <h1>相關文件</h1>
+        </div>
+
+        <div id="plan-content" class="tab-content">
+            <h1>計劃書</h1>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

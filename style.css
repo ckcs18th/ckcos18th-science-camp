@@ -10,6 +10,11 @@
   background-color: #b174e7;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 /* 讓列表橫向排列、去除預設點點與邊距 */
@@ -55,20 +60,31 @@
 }
 
 #head_logo {
-    width: 50%;
+    width: 507px;
     height: auto;
+}
+
+#warning {
+    color: red;
 }
 
 /* 切換頁面 */
 .tab-content {
-    display: none !important;
+    display: none;
+    padding-top: 53px;
 }
 .tab-content.active {
-    display: block !important;
+    display: block;
 }
 .tab-content h1, 
 .tab-content p {
     padding: 20px; /* 讓文字頁面保持舒適的邊距 */
+}
+
+footer {
+    background-color: #c2d2eb;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 /* 電腦版預設隱藏漢堡按鈕 */
@@ -110,5 +126,10 @@
     .nav-tabs li a {
         padding: 14px 20px;
         text-align: left;
+    }
+
+    #head_logo {
+        width: 100%;
+        height: auto;
     }
 }

@@ -43,12 +43,25 @@ if (navbarTitle) {
     navbarTitle.addEventListener('click', function(e) {
         e.preventDefault();
 
-        // 找出導覽列上的「首頁」按鈕
-        const homeTab = document.querySelector('.tab-link[data-target="home-content"]');
-        
-        if (homeTab) {
-            // 直接用程式碼觸發該按鈕的點擊事件！
-            homeTab.click();
+        // 隱藏所有內容，顯示首頁內容
+        contents.forEach(content => content.classList.remove('active'));
+        const homeContent = document.getElementById('home-content');
+        if (homeContent) {
+            homeContent.classList.add('active');
+        }
+
+        // 移除所有分頁的 active
+        tabs.forEach(t => t.classList.remove('active'));
+
+        // 【強制點亮導覽列的首頁按鈕】透過專屬 ID 絕對不會抓錯！
+        const homeBtn = document.getElementById('home-btn');
+        if (homeBtn) {
+            homeBtn.classList.add('active');
+        }
+
+        // 手機版自動收合選單
+        if (navTabs) {
+            navTabs.classList.remove('open');
         }
     });
 }

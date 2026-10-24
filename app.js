@@ -1,3 +1,16 @@
+function checkPassword() {
+    const input = document.getElementById('password-input').value;
+    // 設定你的密碼（注意：直接寫在前端還是看得到原始碼，但能防範一般直接看）
+    const correctPassword = "ckcos18th"; 
+
+    if (input === correctPassword) {
+        document.getElementById('login-box').style.display = 'none'; // 隱藏登入框
+        document.getElementById('protected-content').style.display = 'block'; // 顯示內容
+    } else {
+        document.getElementById('error-msg').innerText = "密碼錯誤，請重新輸入！";
+    }
+}
+
 // 取得漢堡按鈕與選單元素
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navTabs = document.getElementById('nav-tabs');

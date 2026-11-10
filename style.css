@@ -3,13 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.content-container p {
-    line-height: 0;
-}
+
 
 html, body {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   min-height: 100vh; /* 最小高度為整個視窗高度 */
 }
@@ -72,13 +72,20 @@ html, body {
     padding: 10px 0;    /* 上下留白，把導覽列高度撐出來 */
 }
 
+#nav2 {
+    text-align: center;
+    padding-top: 10px;
+}
+
 #head_logo {
     width: 507px;
     height: auto;
 }
 
-#warning {
-    color: red;
+#paper {
+    width:507px;
+    height: auto;
+    text-align: center;
 }
 
 /* 切換頁面 */
@@ -99,7 +106,12 @@ html, body {
 footer {
     background-color: #c2d2eb;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    text-align: left;
+    font-size: 10px;
+    line-height: 15px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* 電腦版預設隱藏漢堡按鈕 */

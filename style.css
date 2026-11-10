@@ -174,5 +174,8 @@ footer {
         padding-left: 20px;
         padding-top: 10px;
         padding-bottom: 10px;
+        /* 加上這兩行來禁止手機瀏覽器自動放大字體 */
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
     }
 }

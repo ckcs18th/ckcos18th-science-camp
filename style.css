@@ -1,14 +1,21 @@
-#login-box {
-    background-color: #c2d2eb;
-    text-align: center;
-    height: 100%;
-}
-
 /* 清除瀏覽器預設的邊距與內距 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.content-container p {
+    line-height: 0;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 最小高度為整個視窗高度 */
+}
+
+.content-container {
+  flex: 1; 
 }
 
 /* 設定導覽列背景與陰影 */
@@ -83,7 +90,9 @@
     display: block;
 }
 .tab-content h1, 
-.tab-content p {
+.tab-content p,
+.tab-content h3,
+.tab-content h4 {
     padding: 20px; /* 讓文字頁面保持舒適的邊距 */
 }
 

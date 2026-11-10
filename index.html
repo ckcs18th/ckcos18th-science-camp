@@ -9,20 +9,7 @@
         #protected-content { display: none; } /* 預設隱藏內容 */
     </style>
 </head>
-<body>
-    <!-- 密碼登入區塊 -->
-    <div id="login-box">
-        <h2>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            請輸入存取密碼
-        </h2>
-        <input type="password" id="password-input" placeholder="請輸入密碼">
-        <button onclick="checkPassword()">確認</button>
-        <p id="error-msg" style="color: red;"></p>
-        <h2><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></h2>
-    </div>
-
-    <div id="protected-content">
+<body>    
         <nav class="navbar">
             <button class="hamburger-btn" id="hamburger-btn" aria-label="切換選單">
                 ☰
@@ -33,7 +20,7 @@
                 <li><a href="#brochure" class="tab-link" data-target="brochure-content">簡章</a></li>
                 <li><a href="#admission" class="tab-link" data-target="admission-content">錄取公告</a></li>
                 <li><a href="#documents" class="tab-link" data-target="documents-content">相關文件</a></li>
-                <li><a href="#plan" class="tab-link" data-target="plan-content">計劃書</a></li>
+                <li><a href="#qa" class="tab-link" data-target="qa-content">常見問題</a></li>
             </ul>
         </nav>
         
@@ -44,37 +31,77 @@
                 <div id="nav">
                     <img id="head_logo" src="head_logo.png">
                 </div>
-                <h1 id="warning">注意！！！<br />本網站屬測試用途，資訊未必完全正確完整，詳細資訊請以建中第18屆科學班ig帳號公布的內容為主</h1>
-                <br />
-                <p>營隊舉辦日期：</p><br />
-                <p>內容</p><br />
-                <p>內容</p>
+                <p>想了解建中科學班的內幕嗎？想讓學長教你、回答你這麼多獨家科學班備考及競賽知識嗎？</p><br />
+                <p>那你千萬不能錯過這個寒假的「一建鍾情．科不容緩」科學營！</p><br />
+                <p>我們準備了各理科領域，各種獨流的課程內容以及有趣的活動，讓你收穫滿滿！（說不定還能認識明年的科學班同學）</p><br />
+                <p>招生對象｜國中生 不限男女</p>
+                <p>報名期間｜即日起~12/12</p>
+                <p>活動日期｜1/29~1/31</p>
+                <p>活動時間｜08:40~17:40無住宿</p>
+                <p>活動費用｜900元（中低收入戶免費，訂餐需外加400元）</p><br />
+                <p>官方網站｜<a href="https://ckcs18th.github.io/ckcos18th-science-camp/">https://ckcs18th.github.io/ckcos18th-science-camp/</a></p>
+                <p>建科IG｜<a href="https://www.instagram.com/ckcos18th">https://www.instagram.com/ckcos18th</a></p>
+                <p>報名表單｜<a href="https://forms.gle/rkF67sFwxXoZRk1YA">https://forms.gle/rkF67sFwxXoZRk1YA</a></p>
             </div>
 
             <div id="brochure-content" class="tab-content">
                 <h1>簡章</h1>
+                <h3>一、活動依據</h3>
+                <p>臺北市立各級學校推展服務學習實施要點。</p>
+                <h3>二、活動目的</h3>
+                <p>透過規劃於執行活動，提供科學班學生體現服務學習的教育意義。</p>
+                <h3>三、活動名稱</h3>
+                <p>「一建鍾情．科不容緩」科學營</p>
+                <h3>四、主辦單位</h3>
+                <p>臺北市立建國中學高一科學班</p>
+                <h3>五、活動執行團隊</h3>
+                <p>科學班導師林元祥、總召陳逸安、副召蔡秉哲、蕭睿希等共 31 名高一科學班同學</p>
+                <h3>六、活動時間</h3>
+                <p>2027/01/29~2027/01/31，合計三天</p>
+                <h3>七、活動地點</h3>
+                <p>建國中學</p>
+                <h3>八、參與對象</h3>
+                <p>對數理方面具興趣或專長之國中學生</p>
+                <h3>九、活動內容</h3>
+                <p>由科學班優秀同學教授進階數理課程，並以巨組方式進行活動，預計分為12巨隊，每巨隊有一名科學班學生擔任隊輔。</p>
+                <p>報名時間：即日起至 2026/12/12，預計2026/12/15公布錄取名單</p>
+                <p>報名方式：填寫線上表單 <a href="https://forms.gle/rkF67sFwxXoZRk1YA">https://forms.gle/rkF67sFwxXoZRk1YA</a></p>
+                <p>費用：場地費、活動紀念衣、保險費、講義費等，共 900 元整。（需訂餐者酌收餐費400元，現場收取）</p>
+                <p>錄取公告：Instagram 官方帳號（<a href="https://www.instagram.com/ckcos18th">@ckcos18th</a>）及此網站</p>
+                <p>錄取人數：預計正取 60 名，備取 20 名</p>
             </div>
 
             <div id="admission-content" class="tab-content">
                 <h1>錄取名單</h1>
-                <p>目前還沒公布錄取名單唷，敬請期待</p>
+                <p>錄取名單預計於12/15公布，敬請期待</p>
             </div>
 
             <div id="documents-content" class="tab-content">
                 <h1>相關文件</h1>
             </div>
 
-            <div id="plan-content" class="tab-content">
-                <h1>計劃書</h1>
+            
+            <div id="qa-content" class="tab-content">
+                <h1>常見問題</h1>
+                <h4>Q：這次有實驗嗎？</h4>
+                <p>A：沒有。考量到上屆承辦時成效有限，且實驗會有場地及安全上的諸多限制。故本屆無實驗課程，改以其他課程及活動取代。</p><br />
+                <h4>Q：為何本屆較早開始報名？</h4>
+                <p>A：因本次營隊將會給予學員服裝，故須先提前確定學員服裝尺寸以向廠商訂購。</p><br />
+                <h4>Q：為何這次收取費用較往年高？</h4>
+                <p>A：本次營隊費用包含服裝、講義、場地費等，故費用較高。</p><br />
+                <h4>Q：題目回答狀況會影響入營資格嗎？</h4>
+                <p>A：該題目主要供調查學員興趣及程度以調整上課難度，篩選並非主要目的。</p><br />
+                <h4>Q：若無法全程出席怎麼辦？</h4>
+                <p>A：請先向我們報備，但僅能退餐費（退一餐退回130元）</p><br />
             </div>
         </div>
     
     
         
-    </div>
+    
     <footer>
         <p>ig:<a href="https://instagram.com/ckcos18th/">ckcos18th</a></p>
-        <p>v0.2.0</p>
+        <p>v0.3.0</p>
     </footer>
     <script type="text/javascript" src="app.js"></script>
 </body>

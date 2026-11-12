@@ -6,6 +6,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#phonepdf {
+    color: red;
+}
 
 html, body {
   height: 100%;

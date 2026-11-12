@@ -8,15 +8,78 @@
 
 
 html, body {
+  height: 100%;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  min-height: 100vh; /* 最小高度為整個視窗高度 */
 }
 
-.content-container {
-  flex: 1; 
+/* 讓外層容器成為 Flex 容器，並預留固定導覽列的高度（padding-top） */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 53px; /* 配合 navbar 高度，避免內容被 navbar 蓋住 */
 }
+
+/* 讓主內容區域自動撐開剩餘空間 */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #c2d2eb;
+}
+.sthr {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px 10px 20px;
+}
+
+#questions {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+    padding-right: 20px;
+    border-right: 2px solid #c2d2eb;
+}
+#schedule {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 20px;
+}
+iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+    padding: 5px;
+}
+
+#dlq {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    margin: auto;
+}
+#dlq:hover {
+    background-color: #f0f2f5;       /* 滑鼠懸停時的顏色 */
+    color: #0066cc;
+}
+
+
+
 
 /* 設定導覽列背景與陰影 */
 .navbar {
@@ -91,16 +154,38 @@ html, body {
 /* 切換頁面 */
 .tab-content {
     display: none;
-    padding-top: 53px;
+    opacity: 0;                   /* 初始透明度為 0 */
+    transition: opacity 0.4s ease-in-out; /* 設定淡入淡出時間為 0.4 秒 */
 }
 .tab-content.active {
     display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
-.tab-content h1, 
+.tab-content.fade-in {
+    opacity: 1;
+}
+
 .tab-content p,
 .tab-content h3,
-.tab-content h4 {
-    padding: 20px; /* 讓文字頁面保持舒適的邊距 */
+.tab-content h4,
+.tab-content h6 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.tab-content h1 {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.sth {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 footer {
@@ -177,5 +262,27 @@ footer {
         /* 加上這兩行來禁止手機瀏覽器自動放大字體 */
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
+    }
+
+    .sthr {
+        flex-direction: column;
+    }
+
+    #questions {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 20px;
+        border-right: none;               /* 移除電腦版的右側邊框 */
+        border-bottom: 2px solid #c2d2eb; /* 改成上下堆疊之間的分隔線 */
+        margin-bottom: 20px;
+    }
+
+    #schedule {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    iframe {
+        height: 450px;                    /* 手機上調整適合檢視的高度 */
     }
 }

@@ -9,59 +9,94 @@ if (hamburgerBtn && navTabs) {
     });
 }
 
-// 取得所有帶有 .tab-link 的標籤
+// 取得所有帶有 .tab-link 的標籤與內容區塊
 const tabs = document.querySelectorAll('.tab-link');
-// 取得所有內容區塊
 const contents = document.querySelectorAll('.tab-content');
 
-// 1. 一般分頁按鈕的點擊事件
-tabs.forEach(tab => {
-    tab.addEventListener('click', function(e) {
-        e.preventDefault();
+/**
+ * 核心切換分頁函式
+ * @param {string} tabId - 目標分頁的 ID（不含 #）
+ */
+function showTab(tabId) {
+    // 若沒有 hash 或 hash 為空，預設導向首頁
+    if (!tabId) {
+        tabId = 'home';
+    }
 
-        tabs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
+    // 關鍵修正：將 hash 對應到實際的 HTML 內容 ID (例如 brochure -> brochure-content)
+    let targetId = (tabId === 'home') ? 'home-content' : (tabId + '-content');
 
-        const targetId = this.getAttribute('data-target');
-        contents.forEach(content => content.classList.remove('active'));
-        
-        const targetContent = document.getElementById(targetId);
-        if (targetContent) {
-            targetContent.classList.add('active');
-        }
+    // 1. 切換內容區塊顯示狀態
+    let matched = false;
+    contents.forEach(content => {
+        if (content.id === targetId) {
+            content.classList.add('active');
+            
+            // 使用 setTimeout 讓瀏覽器先渲染 display: block，再加入 fade-in 觸發淡入動畫
+            setTimeout(() => {
+                content.classList.add('fade-in');
+            }, 10);
 
-        if (navTabs) {
-            navTabs.classList.remove('open');
+            matched = true;
+        } else {
+            // 離開的分頁先移除淡入效果
+            content.classList.remove('fade-in');
+            content.classList.remove('active');
         }
     });
+
+    // 若找不到對應區塊，預設退回首頁
+    if (!matched) {
+        const homeContent = document.getElementById('home-content');
+        if (homeContent) homeContent.classList.add('active');
+        tabId = 'home';
+    }
+
+    // 2. 切換導覽列按鈕的 active 狀態
+    tabs.forEach(t => {
+        const targetAttr = t.getAttribute('data-target');
+        // 比對 data-target 是否符合當前分頁
+        if (targetAttr === tabId || targetAttr === targetId || (tabId === 'home' && targetAttr === 'home')) {
+            t.classList.add('active');
+        } else {
+            t.classList.remove('active');
+        }
+    });
+
+    // 同步處理首頁按鈕的獨立 ID（id="home-btn"）
+    const homeBtn = document.getElementById('home-btn');
+    if (homeBtn) {
+        if (tabId === 'home') {
+            homeBtn.classList.add('active');
+        } else {
+            homeBtn.classList.remove('active');
+        }
+    }
+
+    // 3. 手機版自動收合選單
+    if (navTabs) {
+        navTabs.classList.remove('open');
+    }
+}
+
+// 監聽網址 hash 改變事件
+window.addEventListener('hashchange', () => {
+    const hash = location.hash.slice(1);
+    showTab(hash);
 });
 
-// 2. 點擊標題時，直接「模擬點擊」導覽列的首頁按鈕
+// 頁面初次載入時，根據當前 hash 進行初始化
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = location.hash.slice(1);
+    showTab(hash);
+});
+
+// 2. 點擊標題時，導向首頁 hash
 const navbarTitle = document.querySelector('.navbar-title');
 
 if (navbarTitle) {
     navbarTitle.addEventListener('click', function(e) {
         e.preventDefault();
-
-        // 隱藏所有內容，顯示首頁內容
-        contents.forEach(content => content.classList.remove('active'));
-        const homeContent = document.getElementById('home-content');
-        if (homeContent) {
-            homeContent.classList.add('active');
-        }
-
-        // 移除所有分頁的 active
-        tabs.forEach(t => t.classList.remove('active'));
-
-        // 【強制點亮導覽列的首頁按鈕】透過專屬 ID 絕對不會抓錯！
-        const homeBtn = document.getElementById('home-btn');
-        if (homeBtn) {
-            homeBtn.classList.add('active');
-        }
-
-        // 手機版自動收合選單
-        if (navTabs) {
-            navTabs.classList.remove('open');
-        }
+        window.location.hash = '#home';
     });
 }

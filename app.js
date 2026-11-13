@@ -45,6 +45,14 @@ function showTab(tabId) {
         }
     });
 
+    const pdfIframe = document.getElementById('pdf-iframe');
+    if (pdfIframe) {
+        // 只有當目前切換到 documents 分頁，且尚未載入過 src 時才載入
+        if (tabId === 'documents' && !pdfIframe.src) {
+            pdfIframe.src = pdfIframe.getAttribute('data-src');
+        }
+    }
+
     // 若找不到對應區塊，預設退回首頁
     if (!matched) {
         const homeContent = document.getElementById('home-content');

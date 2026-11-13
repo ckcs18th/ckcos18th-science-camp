@@ -6,9 +6,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#phonepdf {
-    color: red;
-}
+
 
 html, body {
   height: 100%;
@@ -36,8 +34,10 @@ hr {
     border: none;
     height: 2px;
     background-color: #c2d2eb;
+    width: 100%;
+    margin: 2px auto;
 }
-.sthr {
+.sthrc {
     display: flex;
     flex-direction: row;
     padding: 10px 20px 10px 20px;
@@ -47,7 +47,7 @@ hr {
     display: flex;
     flex: 1;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     padding-right: 20px;
     border-right: 2px solid #c2d2eb;
 }
@@ -55,7 +55,7 @@ hr {
     display: flex;
     flex: 1;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     padding-left: 20px;
 }
 iframe {
@@ -65,7 +65,18 @@ iframe {
     padding: 5px;
 }
 
-#dlq {
+.sthrp {
+    display: none;
+}
+
+#schedule img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.dlq {
     display: inline-block;
     padding: 10px 20px;
     background-color: #0066cc;
@@ -74,9 +85,8 @@ iframe {
     border-radius: 5px;
     text-align: center;
     width: 200px;
-    margin: auto;
 }
-#dlq:hover {
+.dlq:hover {
     background-color: #f0f2f5;       /* 滑鼠懸停時的顏色 */
     color: #0066cc;
 }
@@ -94,6 +104,8 @@ iframe {
   left: 0;
   width: 100%;
   z-index: 1000;
+  display: flex;          /* 新增：讓電腦版的標題方塊與導覽選單水平並排 */
+  align-items: stretch;   /* 新增：讓標題方塊高度與導覽列一致 */
 }
 
 /* 讓列表橫向排列、去除預設點點與邊距 */
@@ -108,6 +120,10 @@ iframe {
   background-color: #0066cc;
   color:#f0f2f5;
   font-family: Arial, sans-serif;
+  display: block;         /* 新增：讓標題呈現與分頁按鈕一致的方塊大小 */
+  padding: 15px 25px;     /* 新增：補回原本在 .nav-tabs li a 裡的內距 */
+  text-decoration: none;  /* 新增：移除連結底線 */
+  font-weight: bold;      /* 新增：維持粗體字型 */
 }
 
 /* 索引標籤按鈕的樣式 */
@@ -214,9 +230,31 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch; /* 關鍵：消除藍色方塊上下的紫色縫隙 */
+        flex-wrap: wrap;
+    }
+
+    /* 讓標題在手機版導覽列上完美顯示 */
+    #title.navbar-title {
+        flex: 1;                 /* 關鍵：自動填滿漢堡按鈕以外的所有剩餘寬度 */
+        display: flex;
+        align-items: center;     /* 垂直置中 */
+        justify-content: center; /* 水平置中 */
+        text-decoration: none;   /* 移除文字底線 */
+        font-weight: bold;
+        padding: 14px 15px;
+        background-color: #0066cc;
+        color: #f0f2f5;
+    }
+    
     /* 1. 顯示漢堡按鈕 */
     .hamburger-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     /* 2. 手機版預設隱藏選單列表，並改成垂直排列 */
@@ -267,25 +305,34 @@ footer {
         text-size-adjust: 100%;
     }
 
-    .sthr {
+    .sthrc {
+        display: none;
+    }
+
+    .sthrp {
+        display: flex;
         flex-direction: column;
     }
 
-    #questions {
-        width: 100%;
-        padding-right: 0;
-        padding-bottom: 20px;
-        border-right: none;               /* 移除電腦版的右側邊框 */
-        border-bottom: 2px solid #c2d2eb; /* 改成上下堆疊之間的分隔線 */
-        margin-bottom: 20px;
+    /* 1. 讓手機版「模擬水題本」的按鈕與文字水平置中 */
+    #questionsp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    #schedule {
-        width: 100%;
-        padding-left: 0;
+    #schedulep {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    iframe {
-        height: 450px;                    /* 手機上調整適合檢視的高度 */
+    /* 2. 限制手機版相關文件中的圖片大小，避免過大跑版 */
+    #schedulep img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 15px;
     }
+
 }

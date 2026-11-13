@@ -64,7 +64,13 @@ iframe {
     border: none;
     padding: 5px;
 }
-
+.documenttext {
+    background-color: #c2d2eb;
+    text-align: center;
+}
+#documents-content span{
+    width: 100%;
+}
 .sthrp {
     display: none;
 }
